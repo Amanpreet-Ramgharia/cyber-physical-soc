@@ -1,0 +1,16 @@
+index=iot (sourcetype=iot:pir:json OR sourcetype=iot:mpu:json)
+| eval bucket=_time - (_time % 120)
+| stats max(eval(event_type="iot.motion.detected")) as has_motion
+        max(eval(event_type="iot.device.tamper")) as has_tamper
+        values(sensor) as sensors
+        min(_time) as first_seen
+        max(_time) as last_seen
+  by location host bucket
+| where has_motion=1 AND has_tamper=1
+| eval first_seen=strftime(first_seen, "%Y-%m-%dT%H:%M:%SZ")
+| eval last_seen=strftime(last_seen, "%Y-%m-%dT%H:%M:%SZ")
+| eval incident_id="INC-" . strftime(now(), "%Y%m%d") . "-" . tostring(random()%100000, "commas")
+| eval severity="high", status="new", correlation_window=120, confidence=0.87
+| eval message="Motion AND tamper detected within 120s window"
+| eval source="splunk-correlation-search"
+| table incident_id severity status location sensors first_seen last_seen correlation_window confidence message source host

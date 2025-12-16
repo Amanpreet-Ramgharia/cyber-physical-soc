@@ -1,0 +1,5 @@
+gpiozero>=2.0
+adafruit-circuitpython-dht>=4.0.0
+smbus2>=0.4.3
+mpu6050-raspberrypi>=1.2.0
+requests>=2.31.0

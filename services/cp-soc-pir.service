@@ -1,0 +1,15 @@
+[Unit]
+Description=CP-SOC PIR Motion Sensor Logger
+After=network.target
+
+[Service]
+Type=simple
+User=pi
+WorkingDirectory=/home/pi/cyber-physical-soc
+Environment=PYTHONUNBUFFERED=1
+ExecStart=/home/pi/iot-venv/bin/python /home/pi/cyber-physical-soc/sensors/pir_to_jsonl.py
+Restart=always
+RestartSec=2
+
+[Install]
+WantedBy=multi-user.target

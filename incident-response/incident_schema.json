@@ -1,0 +1,15 @@
+{
+  "incident_id": "string (unique)",
+  "severity": "low|medium|high|critical",
+  "status": "new|acknowledged|investigating|resolved|false_positive",
+  "location": "string",
+  "sensors": [
+    "string"
+  ],
+  "first_seen": "ISO-8601 UTC",
+  "last_seen": "ISO-8601 UTC",
+  "correlation_window": 120,
+  "confidence": "float (0-1)",
+  "message": "string",
+  "source": "string"
+}

@@ -1,0 +1,27 @@
+<dashboard version="1.1">
+  <label>CP-SOC - PIR Motion</label>
+  <row>
+    <panel>
+      <title>Motion Events Timeline</title>
+      <chart>
+        <search>
+          <query>index=iot sourcetype=iot:pir:json event_type="iot.motion.detected" | timechart count as motion_events</query>
+          <earliest>-24h</earliest>
+          <latest>now</latest>
+        </search>
+      </chart>
+    </panel>
+  </row>
+  <row>
+    <panel>
+      <title>Recent Motion Events</title>
+      <table>
+        <search>
+          <query>index=iot sourcetype=iot:pir:json event_type="iot.motion.detected" | table _time host location sensor event_type | sort - _time</query>
+          <earliest>-24h</earliest>
+          <latest>now</latest>
+        </search>
+      </table>
+    </panel>
+  </row>
+</dashboard>

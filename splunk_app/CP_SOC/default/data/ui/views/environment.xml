@@ -1,0 +1,25 @@
+<dashboard version="1.1">
+  <label>CP-SOC - Environment Telemetry</label>
+  <row>
+    <panel>
+      <title>Temperature (°C) Over Time</title>
+      <chart>
+        <search>
+          <query>index=iot sourcetype=iot:dht11:json | timechart avg(temperature_c) as temperature_c</query>
+          <earliest>-24h</earliest>
+          <latest>now</latest>
+        </search>
+      </chart>
+    </panel>
+    <panel>
+      <title>Humidity (%) Over Time</title>
+      <chart>
+        <search>
+          <query>index=iot sourcetype=iot:dht11:json | timechart avg(humidity) as humidity</query>
+          <earliest>-24h</earliest>
+          <latest>now</latest>
+        </search>
+      </chart>
+    </panel>
+  </row>
+</dashboard>

@@ -1,0 +1,37 @@
+<dashboard version="1.1">
+  <label>CP-SOC - Incidents</label>
+  <row>
+    <panel>
+      <title>Incidents by Status</title>
+      <chart>
+        <search>
+          <query>index=incidents sourcetype=incident:json | stats count by status</query>
+          <earliest>-7d</earliest>
+          <latest>now</latest>
+        </search>
+      </chart>
+    </panel>
+    <panel>
+      <title>Incidents by Severity</title>
+      <chart>
+        <search>
+          <query>index=incidents sourcetype=incident:json | stats count by severity</query>
+          <earliest>-7d</earliest>
+          <latest>now</latest>
+        </search>
+      </chart>
+    </panel>
+  </row>
+  <row>
+    <panel>
+      <title>Latest Incidents</title>
+      <table>
+        <search>
+          <query>index=incidents sourcetype=incident:json | table _time incident_id severity status location sensors first_seen last_seen message source host | sort - _time</query>
+          <earliest>-7d</earliest>
+          <latest>now</latest>
+        </search>
+      </table>
+    </panel>
+  </row>
+</dashboard>

@@ -1,0 +1,7 @@
+<nav search_view="search" color="#65A637">
+  <view name="environment" default="true" />
+  <view name="motion" />
+  <view name="tamper" />
+  <view name="correlation" />
+  <view name="incidents" />
+</nav>

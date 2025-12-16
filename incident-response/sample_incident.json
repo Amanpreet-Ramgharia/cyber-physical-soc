@@ -1,0 +1,16 @@
+{
+  "incident_id": "INC-2025-00001",
+  "severity": "high",
+  "status": "new",
+  "location": "desk",
+  "sensors": [
+    "pir-1",
+    "mpu6050-desk-1"
+  ],
+  "first_seen": "2025-12-15T18:42:10Z",
+  "last_seen": "2025-12-15T18:43:05Z",
+  "correlation_window": 120,
+  "confidence": 0.87,
+  "message": "Motion followed by vibration detected within correlation window",
+  "source": "splunk-correlation-search"
+}
