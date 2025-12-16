@@ -112,38 +112,4 @@ Includes:
 
 ---
 
-## License
-MIT (see `LICENSE`)
 
-## Screenshots (Drop-in for GitHub + LinkedIn)
-
-Put your images in `images/` and keep filenames consistent so the README always renders cleanly.
-
-### Recommended files
-- `images/hardware_setup.jpg` — Raspberry Pi + breadboard + sensor wiring
-- `images/splunk_environment.png` — Environment dashboard (temp/humidity charts)
-- `images/splunk_motion.png` — PIR dashboard (timeline + events table)
-- `images/splunk_tamper.png` — MPU6050 dashboard (timeline + tamper table)
-- `images/splunk_correlation.png` — Correlation panel (windows where both signals match)
-- `images/splunk_incidents.png` — Incidents dashboard (status/severity + latest incidents)
-
-### README embed example
-```md
-![Hardware setup](images/hardware_setup.jpg)
-![Correlation dashboard](images/splunk_correlation.png)
-![Incidents dashboard](images/splunk_incidents.png)
-```
-
-### Screenshot tips (for credibility)
-- Use a **24h** time range (shows it’s live, not static)
-- Keep the visible query (SPL) in at least one screenshot
-- Blur/avoid any hostnames or tokens if they’re sensitive
-
-## Splunk App Packaging (Optional)
-
-If you want a clean “installable” Splunk app (dashboards + saved searches in one import), use:
-
-- `splunk_app/CP_SOC/`
-
-Install by copying it into `$SPLUNK_HOME/etc/apps/` and restarting Splunk.
-See `splunk_app/CP_SOC/README.md` for details.
